@@ -9,9 +9,9 @@ class JavalinConfig {
     fun startJavalinService(): Javalin {
 
         val app = Javalin.create().apply {
-            exception(Exception::class.java) { e, ctx -> e.printStackTrace() }
+            exception(Exception::class.java) { e, _ -> e.printStackTrace() }
             error(404) { ctx -> ctx.json("404 - Not Found") }
-        }.start(7000)
+        }.start(getHerokuAssignedPort())
 
         registerRoutes(app)
         return app
@@ -33,4 +33,12 @@ class JavalinConfig {
             }
         }
     }
+
+    private fun getHerokuAssignedPort(): Int {
+        val herokuPort = System.getenv("PORT")
+        return if (herokuPort != null) {
+            Integer.parseInt(herokuPort)
+        } else 7000
+    }
+
 }
