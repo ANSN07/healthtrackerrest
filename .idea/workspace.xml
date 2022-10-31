@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6d33af7-5860-401b-bab7-e05f4a01082c" name="Changes" comment="Lab 5 - using Heroku PostgresDB to get data">
+    <list default="true" id="c6d33af7-5860-401b-bab7-e05f4a01082c" name="Changes" comment="Lab 5 - exercises and swagger annotations">
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/helpers/Fixtures.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/repository/UserDAOTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie/setu/config/JavalinConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie/setu/config/JavalinConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie/setu/controllers/HealthTrackerController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie/setu/controllers/HealthTrackerController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie/setu/domain/repository/UserDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie/setu/domain/repository/UserDAO.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,16 +35,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/User/Downloads/health-tracker-rest-2.1",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Downloads/health-tracker-rest-3.0&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Maven.deploy-heroku">
+}</component>
+  <component name="RunManager" selected="JUnit.UserDAOTest">
+    <configuration name="UserDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="healthtrackerrest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ie.setu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ie.setu.repository" />
+      <option name="MAIN_CLASS_NAME" value="ie.setu.repository.UserDAOTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AppKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ie.setu.AppKt" />
       <module name="healthtrackerrest" />
@@ -80,6 +95,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserDAOTest" />
         <item itemvalue="Kotlin.AppKt" />
       </list>
     </recent_temporary>
@@ -96,7 +112,8 @@
       <workItem from="1666904116546" duration="6192000" />
       <workItem from="1666996297862" duration="2093000" />
       <workItem from="1667041316001" duration="11459000" />
-      <workItem from="1667139404319" duration="7160000" />
+      <workItem from="1667139404319" duration="16576000" />
+      <workItem from="1667186145323" duration="327000" />
     </task>
     <task id="LOCAL-00001" summary="Lab 4 - exercises">
       <created>1666996508922</created>
@@ -119,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667060195879</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Lab 5 - exercises and swagger annotations">
+      <created>1667155985729</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1667155985729</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +164,12 @@
     <MESSAGE value="Lab 4 - exercises" />
     <MESSAGE value="Lab 5 - heroku deployment" />
     <MESSAGE value="Lab 5 - using Heroku PostgresDB to get data" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lab 5 - using Heroku PostgresDB to get data" />
+    <MESSAGE value="Lab 5 - exercises and swagger annotations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lab 5 - exercises and swagger annotations" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/healthtrackerrest$UserDAOTest.ic" NAME="UserDAOTest Coverage Results" MODIFIED="1667186256608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ie.setu.repository.*</FILTER>
+    </SUITE>
   </component>
 </project>
