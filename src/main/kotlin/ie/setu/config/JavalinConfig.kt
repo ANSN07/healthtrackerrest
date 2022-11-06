@@ -52,6 +52,10 @@ class JavalinConfig {
                         get(ActivityController::getActivitiesByUserId)
                         delete(ActivityController::deleteActivityByUserId)
                     }
+                    path("{intakes}"){
+                        get(IntakeController::getIntakesByUserId)
+                        delete(IntakeController::deleteIntakeByUserId)
+                    }
                 }
                 path("email/{email}") {
                     get(UserController::getUserByEmail)
@@ -64,6 +68,15 @@ class JavalinConfig {
                     get(ActivityController::getActivitiesByActivityId)
                     delete(ActivityController::deleteActivityByActivityId)
                     patch(ActivityController::updateActivity)
+                }
+            }
+            path("/api/intakes") {
+                get(IntakeController::getAllIntakes)
+                post(IntakeController::addIntake)
+                path("{intake-id}") {
+                    get(IntakeController::getIntakesByIntakeId)
+                    delete(IntakeController::deleteIntakeByIntakeId)
+                    patch(IntakeController::updateIntake)
                 }
             }
         }
