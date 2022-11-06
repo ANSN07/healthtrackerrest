@@ -41,7 +41,7 @@ class UserControllerTest {
             val id = Integer.MIN_VALUE
 
             // Act - attempt to retrieve the non-existent user from the database
-            val retrieveResponse = Unirest.get(origin + "/api/users/${id}").asString()
+            val retrieveResponse = retrieveUserById(id)
 
             // Assert -  verify return code
             assertEquals(404, retrieveResponse.status)
@@ -50,7 +50,7 @@ class UserControllerTest {
         @Test
         fun `get user by email when user does not exist returns 404 response`() {
             // Arrange & Act - attempt to retrieve the non-existent user from the database
-            val retrieveResponse = Unirest.get(origin + "/api/users/email/${nonExistingEmail}").asString()
+            val retrieveResponse = retrieveUserByEmail(nonExistingEmail)
             // Assert -  verify return code
             assertEquals(404, retrieveResponse.status)
         }
@@ -112,7 +112,7 @@ class UserControllerTest {
     }
 
     @Nested
-    inner class UpdateUser {
+    inner class UpdateUsers {
         @Test
         fun `updating a user when it exists, returns a 204 response`() {
 
@@ -141,7 +141,7 @@ class UserControllerTest {
     }
 
     @Nested
-    inner class DeleteUser {
+    inner class DeleteUsers {
         @Test
         fun `deleting a user when it doesn't exist, returns a 404 response`() {
             //Act & Assert - attempt to delete a user that doesn't exist
@@ -164,7 +164,7 @@ class UserControllerTest {
     }
 
     //helper function to add a test user to the database
-    private fun addUser(name: String, email: String): HttpResponse<JsonNode> {
+    private fun addUser (name: String, email: String): HttpResponse<JsonNode> {
         return Unirest.post(origin + "/api/users")
             .body("{\"name\":\"$name\", \"email\":\"$email\"}")
             .asJson()
@@ -185,7 +185,7 @@ class UserControllerTest {
         return Unirest.get(origin + "/api/users/${id}").asString()
     }
 
-    //helper function to add a test user to the database
+    //helper function to update a test user to the database
     private fun updateUser (id: Int, name: String, email: String): HttpResponse<JsonNode> {
         return Unirest.patch(origin + "/api/users/$id")
             .body("{\"name\":\"$name\", \"email\":\"$email\"}")
