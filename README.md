@@ -1,6 +1,6 @@
 #### healthtrackerrest
 
-#Health Tracker App
+# Health Tracker App
 
 This application basically collects data from the user and tracks the health status of user by summarizing data.
 Basic details of user are collected like name and email, each user will have a unique ID.
@@ -56,4 +56,7 @@ patch("/api/intakes/:intake-id", HealthTrackerAPI::updateIntake)
 
 
 Swagger Documentation of the project: [Health Tracker](https://health-tracker-20100677.herokuapp.com/swagger-ui)
+
 Heroku link : [Heroku](https://health-tracker-20100677.herokuapp.com/api/users)
+
+
