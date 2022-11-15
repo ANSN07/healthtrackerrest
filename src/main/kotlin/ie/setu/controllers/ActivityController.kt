@@ -60,7 +60,11 @@ object ActivityController {
                 ctx.json(mapper.writeValueAsString(activities))
                 ctx.status(200)
             }
-        } else {
+            else {
+                ctx.status(404)
+            }
+        }
+        else{
             ctx.status(404)
         }
     }
@@ -75,11 +79,14 @@ object ActivityController {
         responses  = [OpenApiResponse("201")]
     )
     fun addActivity(ctx: Context) {
+        val mapper = jacksonObjectMapper()
+            .registerModule(JodaModule())
+            .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
         val activity : Activity = jsonToObject(ctx.body())
         val activityId = activityDAO.save(activity)
         if (activityId != null) {
             activity.id = activityId
-            ctx.json(activity)
+            ctx.json(mapper.writeValueAsString(activity))
             ctx.status(201)
         }
     }

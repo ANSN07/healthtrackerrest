@@ -172,7 +172,7 @@ class UserControllerTest {
 
     //helper function to delete a test user from the database
     private fun deleteUser (id: Int): HttpResponse<String> {
-        return Unirest.delete(origin + "/api/users/$id").asString()
+        return Unirest.delete(origin + "/api/users/${id}").asString()
     }
 
     //helper function to retrieve a test user from the database by email
@@ -187,7 +187,7 @@ class UserControllerTest {
 
     //helper function to update a test user to the database
     private fun updateUser (id: Int, name: String, email: String): HttpResponse<JsonNode> {
-        return Unirest.patch(origin + "/api/users/$id")
+        return Unirest.patch(origin + "/api/users/${id}")
             .body("{\"name\":\"$name\", \"email\":\"$email\"}")
             .asJson()
     }

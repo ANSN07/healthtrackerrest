@@ -7,7 +7,6 @@ import ie.setu.domain.repository.UserDAO
 import io.javalin.http.Context
 import io.javalin.plugin.openapi.annotations.*
 import ie.setu.domain.Intake
-import ie.setu.domain.User
 import ie.setu.domain.repository.IntakeDAO
 import ie.setu.utils.jsonToObject
 
