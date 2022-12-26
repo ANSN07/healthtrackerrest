@@ -4,27 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6d33af7-5860-401b-bab7-e05f4a01082c" name="Changes" comment="Lab 7 - Refactoring and integration testing of User controller">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/ie/setu/controllers/IntakeController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/ie/setu/domain/Intake.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/ie/setu/domain/db/Intakes.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/ie/setu/domain/repository/IntakeDAO.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/controllers/ActivityControllerTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/controllers/IntakeControllerTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/repository/IntakeDAOTest.kt" afterDir="false" />
+    <list default="true" id="c6d33af7-5860-401b-bab7-e05f4a01082c" name="Changes" comment="Added new feature : Intake and integration tests for activity and intake class">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/ie/setu/controllers/SummaryController.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie/setu/config/JavalinConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie/setu/config/JavalinConfig.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie/setu/controllers/ActivityController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie/setu/controllers/ActivityController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie/setu/domain/repository/ActivityDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie/setu/domain/repository/ActivityDAO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie/setu/utils/DBUtilities.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie/setu/utils/DBUtilities.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie/setu/controllers/IntakeController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie/setu/controllers/IntakeController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/ie/setu/controllers/ActivityControllerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/controllers/ActivityControllerTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/ie/setu/controllers/UserControllerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/controllers/UserControllerTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/ie/setu/helpers/Fixtures.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/helpers/Fixtures.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\User\Downloads" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -51,16 +47,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/User/Downloads/health-tracker-rest-4.0",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/healthtrackerrest&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="JUnit.IntakeControllerTest">
+}</component>
+  <component name="RunManager" selected="JUnit.All in healthtrackerrest">
     <configuration name="ActivityControllerTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthtrackerrest" />
       <extension name="coverage">
@@ -72,6 +68,37 @@
       <option name="PACKAGE_NAME" value="ie.setu.controllers" />
       <option name="MAIN_CLASS_NAME" value="ie.setu.controllers.ActivityControllerTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ActivityControllerTest$DeleteActivities" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="healthtrackerrest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ie.setu.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ie.setu.controllers.ActivityControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="ie.setu.controllers.ActivityControllerTest$DeleteActivities" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ActivityControllerTest$DeleteActivities.deleting activity of a user when user id exists, returns a 204 response" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="healthtrackerrest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ie.setu.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ie.setu.controllers.ActivityControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="ie.setu.controllers.ActivityControllerTest$DeleteActivities" />
+      <option name="METHOD_NAME" value="deleting activity of a user when user id exists, returns a 204 response" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -91,54 +118,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IntakeControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in healthtrackerrest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthtrackerrest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ie.setu.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ie.setu.controllers" />
-      <option name="MAIN_CLASS_NAME" value="ie.setu.controllers.IntakeControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserControllerTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="healthtrackerrest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ie.setu.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ie.setu.controllers" />
-      <option name="MAIN_CLASS_NAME" value="ie.setu.controllers.UserControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="healthtrackerrest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ie.setu.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ie.setu.controllers" />
-      <option name="MAIN_CLASS_NAME" value="ie.setu.controllers.UserControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ie.setu.AppKt" />
-      <module name="healthtrackerrest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -170,11 +153,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.IntakeControllerTest" />
+        <item itemvalue="JUnit.All in healthtrackerrest" />
         <item itemvalue="JUnit.ActivityControllerTest (1)" />
-        <item itemvalue="JUnit.UserControllerTest (1)" />
+        <item itemvalue="JUnit.ActivityControllerTest$DeleteActivities.deleting activity of a user when user id exists, returns a 204 response" />
+        <item itemvalue="JUnit.ActivityControllerTest$DeleteActivities" />
         <item itemvalue="JUnit.ActivityControllerTest" />
-        <item itemvalue="JUnit.UserControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -195,7 +178,9 @@
       <workItem from="1667211169115" duration="3876000" />
       <workItem from="1667661434069" duration="10476000" />
       <workItem from="1667678720270" duration="14006000" />
-      <workItem from="1667732259131" duration="21672000" />
+      <workItem from="1667732259131" duration="28331000" />
+      <workItem from="1667762177681" duration="8905000" />
+      <workItem from="1668518850773" duration="301000" />
     </task>
     <task id="LOCAL-00001" summary="Lab 4 - exercises">
       <created>1666996508922</created>
@@ -253,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667736897454</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added new feature : Intake and integration tests for activity and intake class">
+      <created>1667754428237</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1667754428237</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,12 +271,30 @@
     <MESSAGE value="Lab 6 - Add new activity data class" />
     <MESSAGE value="Lab 6 - Exercises (Activity class new endpoints)" />
     <MESSAGE value="Lab 7 - Refactoring and integration testing of User controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lab 7 - Refactoring and integration testing of User controller" />
+    <MESSAGE value="Added new feature : Intake and integration tests for activity and intake class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new feature : Intake and integration tests for activity and intake class" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/ie/setu/controllers/ActivityController.kt</url>
+          <line>52</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/ie/setu/controllers/ActivityControllerTest.kt</url>
+          <line>94</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/healthtrackerrest$UserDAOTest.ic" NAME="UserDAOTest Coverage Results" MODIFIED="1667186483699" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ie.setu.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/healthtrackerrest$All_in_healthtrackerrest.ic" NAME="All in healthtrackerrest Coverage Results" MODIFIED="1667770771243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/healthtrackerrest$HealthTrackerControllerTest__1_.ic" NAME="HealthTrackerControllerTest (1) Coverage Results" MODIFIED="1667733274918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ie.setu.controllers.*</FILTER>
     </SUITE>

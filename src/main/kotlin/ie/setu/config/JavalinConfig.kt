@@ -52,10 +52,13 @@ class JavalinConfig {
                         get(ActivityController::getActivitiesByUserId)
                         delete(ActivityController::deleteActivityByUserId)
                     }
-                    path("{intakes}"){
+                    path("intakes"){
                         get(IntakeController::getIntakesByUserId)
                         delete(IntakeController::deleteIntakeByUserId)
                     }
+                }
+                path("summary") {
+//                    get(SummaryController::getUserSummary)
                 }
                 path("email/{email}") {
                     get(UserController::getUserByEmail)
