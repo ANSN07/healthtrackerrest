@@ -58,8 +58,11 @@ object IntakeController {
                     .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
                 ctx.json(mapper.writeValueAsString(intakes))
                 ctx.status(200)
+            } else {
+                ctx.status(404)
             }
-        } else {
+        }
+        else{
             ctx.status(404)
         }
     }
@@ -74,11 +77,14 @@ object IntakeController {
         responses  = [OpenApiResponse("201")]
     )
     fun addIntake(ctx: Context) {
+        val mapper = jacksonObjectMapper()
+            .registerModule(JodaModule())
+            .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
         val intake : Intake = jsonToObject(ctx.body())
         val intakeId = intakeDAO.save(intake)
         if (intakeId != null) {
             intake.id = intakeId
-            ctx.json(intake)
+            ctx.json(mapper.writeValueAsString(intake))
             ctx.status(201)
         }
     }
