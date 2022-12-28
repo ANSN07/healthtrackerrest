@@ -58,6 +58,9 @@ class JavalinConfig {
                         get(IntakeController::getIntakesByUserId)
                         delete(IntakeController::deleteIntakeByUserId)
                     }
+                    path("badges"){
+                        get(BadgeController::getBadgesByUserId)
+                    }
                 }
                 path("summary") {
 //                    get(SummaryController::getUserSummary)

@@ -7,4 +7,5 @@ data class Activity (var id: Int,
                      var duration: Double,
                      var calories: Int,
                      var started: DateTime,
+                     var distance: Double,
                      var userId: Int)
