@@ -18,12 +18,14 @@ val validEmail = "testuser@test.com"
 val updatedName = "Updated Name"
 val updatedEmail = "Updated Email"
 val validDescription = "Test Description"
+val validDistance = 120.0
 val validDuration = 12.0
 val validCalories = 120
 val validStarted = DateTime.now()
 val validUserId = 2
 val updatedDescription = "Updated Description"
 val updatedDuration = 13.0
+val updatedDistance = 130.0
 val updatedCalories = 122
 val updatedStarted = DateTime.now()
 val updatedUserId = 2
@@ -44,9 +46,9 @@ val users = arrayListOf<User>(
 )
 
 val activities = arrayListOf<Activity>(
-    Activity(id = 1, description = "Running", duration = 22.0, calories = 230, started = DateTime.now(), userId = 1),
-    Activity(id = 2, description = "Hopping", duration = 10.5, calories = 80, started = DateTime.now(), userId = 1),
-    Activity(id = 3, description = "Walking", duration = 12.0, calories = 120, started = DateTime.now(), userId = 2)
+    Activity(id = 1, description = "Running", duration = 22.0, calories = 230, started = DateTime.now(), distance = 230.0, userId = 1),
+    Activity(id = 2, description = "Hopping", duration = 10.5, calories = 80, started = DateTime.now(), distance = 430.0, userId = 1),
+    Activity(id = 3, description = "Walking", duration = 12.0, calories = 120, started = DateTime.now(), distance = 80.0, userId = 2)
 )
 
 val intakes = arrayListOf<Intake>(

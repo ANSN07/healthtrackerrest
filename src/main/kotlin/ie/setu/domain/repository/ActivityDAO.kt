@@ -45,6 +45,7 @@ class ActivityDAO {
                 it[duration] = activity.duration
                 it[started] = activity.started
                 it[calories] = activity.calories
+                it[distance] = activity.distance
                 it[userId] = activity.userId
             } get Activities.id
         }
@@ -58,6 +59,7 @@ class ActivityDAO {
                 it[duration] = activityDTO.duration
                 it[started] = activityDTO.started
                 it[calories] = activityDTO.calories
+                it[distance] = activityDTO.distance
                 it[userId] = activityDTO.userId
             }
         }

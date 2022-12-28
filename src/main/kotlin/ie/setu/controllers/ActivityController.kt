@@ -9,11 +9,15 @@ import io.javalin.plugin.openapi.annotations.*
 import ie.setu.domain.Activity
 import ie.setu.domain.repository.ActivityDAO
 import ie.setu.utils.jsonToObject
+import ie.setu.domain.Badge
+import ie.setu.domain.repository.BadgeDAO
+import org.joda.time.LocalDateTime
 
 object ActivityController {
 
     private val activityDAO = ActivityDAO()
     private val userDao = UserDAO()
+    private val badgeDao = BadgeDAO()
 
     @OpenApi(
         summary = "Get all activities",
@@ -53,7 +57,22 @@ object ActivityController {
         if (userDao.findById(ctx.pathParam("user-id").toInt()) != null) {
             val activities = activityDAO.findByUserId(ctx.pathParam("user-id").toInt())
             if (activities.isNotEmpty()) {
-                //mapper handles the deserialization of Joda date into a String.
+                var totalDistance = 0.0
+                for (activity in activities) {
+                    totalDistance += activity.distance
+                }
+
+                if (totalDistance >= 20.0 && totalDistance < 40.0) {
+                    val badge : Badge = jsonToObject("""{"name": "20 kms", "level": 1, "date": "${LocalDateTime.now()}", "userId": ${ctx.pathParam("user-id")}}""")
+                    badgeDao.save(badge)
+                } else if (totalDistance >= 40.0 && totalDistance < 80.0) {
+                    val badge : Badge = jsonToObject("""{"name": "40 kms", "level": 2, "date": "${LocalDateTime.now()}", "userId": ${ctx.pathParam("user-id")}}""")
+                    badgeDao.save(badge)
+                } else if (totalDistance >= 80.0) {
+                    val badge : Badge = jsonToObject("""{"name": "80 kms", "level": 3, "date": "${LocalDateTime.now()}", "userId": ${ctx.pathParam("user-id")}}""")
+                    badgeDao.save(badge)
+                }
+
                 val mapper = jacksonObjectMapper()
                     .registerModule(JodaModule())
                     .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
