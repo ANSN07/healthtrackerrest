@@ -35,3 +35,12 @@ fun mapToBadge(it: ResultRow) = Badge(
     date = it[Badges.date],
     userId = it[Badges.userId]
 )
+
+fun mapToGoal(it: ResultRow) = Goal(
+    id = it[Goals.id],
+    targetWeight = it[Goals.targetWeight],
+    targetCalories = it[Goals.targetCalories],
+    targetLevel = it[Goals.targetLevel],
+    date = it[Goals.date],
+    userId = it[Goals.userId]
+)

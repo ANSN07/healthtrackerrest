@@ -61,6 +61,11 @@ class JavalinConfig {
                     path("badges"){
                         get(BadgeController::getBadgesByUserId)
                     }
+                    path("goals"){
+                        post(GoalController::addGoal)
+                        get(GoalController::getGoalsByUserId)
+                        delete(GoalController::deleteGoalsByUserId)
+                    }
                 }
                 path("summary") {
 //                    get(SummaryController::getUserSummary)
@@ -86,6 +91,9 @@ class JavalinConfig {
                     delete(IntakeController::deleteIntakeByIntakeId)
                     patch(IntakeController::updateIntake)
                 }
+            }
+            path("/api/goals/{id}") {
+                patch(GoalController::updateGoalsByUserId)
             }
             // The @routeComponent that we added in layout.html earlier will be replaced
             // by the String inside of VueComponent. This means a call to / will load
