@@ -44,3 +44,10 @@ fun mapToGoal(it: ResultRow) = Goal(
     date = it[Goals.date],
     userId = it[Goals.userId]
 )
+
+fun mapToWeight(it: ResultRow) = Weight(
+    id = it[userWeight.id],
+    value = it[userWeight.value],
+    date = it[userWeight.date],
+    userId = it[userWeight.userId]
+)
