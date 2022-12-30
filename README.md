@@ -5,7 +5,10 @@
 This application basically collects data from the user and tracks the health status of user by summarizing data.
 Basic details of user are collected like name and email, each user will have a unique ID.
 Each User can add several activities they had done done during the day where each activity will have a short description, unique ID, calories burned, duration of the activity, start time and date and finally the user id.
-User can add the intakes they had which includes the name of the food, amount of calories, number of units consumed, user id and a unique id.
+User can add the intakes they had which includes the name of the food, amount of calories, number of units consumed, unit measure , user id and a unique id.
+User can add their goals for weight, calories and levels of badges.
+Badges are obtained based on the user activities where milestones are set to 20, 40, 80, 100 kms.
+Weight endpoint tracks user's weight over time. This is illustrated graphically.
 
 //USERS - API CRUD
 
@@ -53,10 +56,32 @@ delete("/api/intakes/:intake-id", HealthTrackerAPI::deleteIntakeByIntakeId)
 
 patch("/api/intakes/:intake-id", HealthTrackerAPI::updateIntake)
 
+//FOOD ITEMS 
+
+get("/api/users/:user-id/food-items", HealthTrackerAPI::getFoodItemsByUserId)
+
+post("/api/food/:{food-id}", HealthTrackerAPI::addFoodItem) 
+
+delete("/api/food/:{food-id}", HealthTrackerAPI::deleteFoodItemsByFoodId) 
+
+patch("/api/food/:{food-id}", HealthTrackerAPI::addFoodItem) 
+
+
+//BADGES
+
+get("/api/users/:user-id/badges", HealthTrackerAPI::getBadgesByUserId)
+
+//WEIGHT
+
+get("/api/users/:user-id/weight", HealthTrackerAPI::getWeightByUserId)
+
+//GOALS
+
+get("/api/users/:user-id/goals", HealthTrackerAPI::getGoalsByUserId)
 
 
 Swagger Documentation of the project: [Health Tracker](https://health-tracker-20100677.herokuapp.com/swagger-ui)
 
-Heroku link : [Heroku](https://health-tracker-20100677.herokuapp.com/api/users)
+Railway link : [Railway](https://healthtrackerrest-production-9807.up.railway.app/)
 
 
