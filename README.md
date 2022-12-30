@@ -10,6 +10,20 @@ User can add their goals for weight, calories and levels of badges.
 Badges are obtained based on the user activities where milestones are set to 20, 40, 80, 100 kms.
 Weight endpoint tracks user's weight over time. This is illustrated graphically.
 
+
+
+## Features
+
+| Feature                                | Summary                                                                                                                                                                                                                                                     |
+|----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Users and Activities | Interactive UI showing users list and activities performed. |
+| Food tracking | Track every intake, when you ate it and its calories. |
+| Weight tracking | Graphical representation of weight over time. |
+| Goal setting | Set goals and keep track of your health |
+| Achievements | Badges obtained over completion of levels |
+
+
+
 //USERS - API CRUD
 
 get("/api/users", HealthTrackerAPI::getAllUsers)
@@ -66,7 +80,6 @@ delete("/api/food/:{food-id}", HealthTrackerAPI::deleteFoodItemsByFoodId)
 
 patch("/api/food/:{food-id}", HealthTrackerAPI::addFoodItem) 
 
-
 //BADGES
 
 get("/api/users/:user-id/badges", HealthTrackerAPI::getBadgesByUserId)
@@ -96,6 +109,7 @@ patch("/api/users/:user-id/goals", HealthTrackerAPI::updateGoalsByUserId)
 
 Swagger Documentation of the project: [Health Tracker](https://health-tracker-20100677.herokuapp.com/swagger-ui)
 
+## Use the app
 Railway link : [Railway](https://healthtrackerrest-production-9807.up.railway.app/)
 
 
