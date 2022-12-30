@@ -44,16 +44,23 @@
           </div>
         </form>
       </div>
-      <div class="card-footer text-left">
-        <p  v-if="activities.length == 0"> No activities yet...</p>
-        <p  v-if="activities.length > 0"> Activities so far...</p>
-        <ul>
-          <li v-for="activity in activities">
-            {{ activity.description }} for {{ activity.duration }} minutes
-          </li>
-        </ul>
+      <div class="card-footer text-center">
+<!--        <div v-if="user">-->
+<!--          <a :href="`/users/${user.id}/activities`">View User Activities</a>-->
+<!--        </div>-->
+        <div class="container-fluid py-2" v-if="user">
+          <div class="d-flex flex-row flex-nowrap">
+            <a :href="`/users/${user.id}/activities`" class="card card-body" style="margin-right: 15px; cursor: pointer">User Activities</a>
+            <a :href="`/users/${user.id}/weight`" class="card card-body" style="margin-right: 15px; cursor: pointer">User Weight</a>
+            <a :href="`/users/${user.id}/goals`" class="card card-body" style="margin-right: 15px; cursor: pointer">User Goals</a>
+            <a :href="`/users/${user.id}/intakes`" class="card card-body" style="margin-right: 15px; cursor: pointer">User Intake</a>
+
+          </div>
+        </div>
+
       </div>
     </div>
+
   </app-layout>
 </template>
 
@@ -63,7 +70,6 @@ Vue.component("user-profile", {
   data: () => ({
     user: null,
     noUserFound: false,
-    activities: [],
   }),
   created: function () {
     const userId = this.$javalin.pathParams["user-id"];
@@ -73,11 +79,6 @@ Vue.component("user-profile", {
         .catch(error => {
           console.log("No user found for id passed in the path parameter: " + error)
           this.noUserFound = true
-        })
-    axios.get(url + `/activities`)
-        .then(res => this.activities = res.data)
-        .catch(error => {
-          console.log("No activities added yet (this is ok): " + error)
         })
   },
   methods: {

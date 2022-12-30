@@ -34,9 +34,9 @@ object WeightController {
                 ctx.json(mapper.writeValueAsString(weight))
                 ctx.status(200)
             }
-            else {
-                ctx.status(404)
-            }
+//            else {
+//                ctx.status(404)
+//            }
         }
         else{
             ctx.status(404)
@@ -66,16 +66,16 @@ object WeightController {
     }
 
     @OpenApi(
-        summary = "Delete weight by user ID",
-        operationId = "deleteWeightByUserId",
+        summary = "Delete weight by weight ID",
+        operationId = "deleteWeightById",
         tags = ["Weight"],
-        path = "/api/users/{user-id}/weight",
+        path = "/api/users/{id}/weight",
         method = HttpMethod.DELETE,
-        pathParams = [OpenApiParam("user-id", Int::class, "The user ID")],
+        pathParams = [OpenApiParam("id", Int::class, "The weight ID")],
         responses  = [OpenApiResponse("204"), OpenApiResponse("404")]
     )
-    fun deleteWeightByUserId(ctx: Context){
-        if (weightDao.deleteByUserId(ctx.pathParam("user-id").toInt()) !=0)
+    fun deleteWeightById(ctx: Context){
+        if (weightDao.deleteById(ctx.pathParam("id").toInt()) !=0)
             ctx.status(204)
         else
             ctx.status(404)

@@ -55,12 +55,8 @@ fun mapToFoodItem(it: ResultRow) = FoodItem(
     foodId = it[FoodItems.foodId],
     foodName = it[FoodItems.foodName],
     calorie = it[FoodItems.calorie],
-    unitMeasure = it[FoodItems.unitMeasure]
+    unitMeasure = it[FoodItems.unitMeasure],
+    numberOfItems = it[FoodItems.numberOfItems],
+    userId = it[FoodItems.userId]
 )
 
-fun mapToFoodIntake(it: ResultRow) = FoodItemIntake(
-    foodIntakeId = it[FoodItemIntakes.foodIntakeId],
-    foodId = it[FoodItemIntakes.foodId],
-    intakeId = it[FoodItemIntakes.intakeId],
-    numberOfItems = it[FoodItemIntakes.numberOfItems]
-)

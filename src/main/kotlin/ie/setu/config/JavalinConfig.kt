@@ -58,6 +58,9 @@ class JavalinConfig {
                         get(IntakeController::getIntakesByUserId)
                         delete(IntakeController::deleteIntakeByUserId)
                     }
+                    path("food-items"){
+                        get(FoodItemController::getFoodItemsByUserId)
+                    }
                     path("badges"){
                         get(BadgeController::getBadgesByUserId)
                     }
@@ -65,11 +68,11 @@ class JavalinConfig {
                         post(GoalController::addGoal)
                         get(GoalController::getGoalsByUserId)
                         delete(GoalController::deleteGoalsByUserId)
+                        patch(GoalController::updateGoalsByUserId)
                     }
                     path("weight"){
                         post(WeightController::addWeight)
                         get(WeightController::getWeightByUserId)
-                        delete(WeightController::deleteWeightByUserId)
                     }
                 }
                 path("summary") {
@@ -97,11 +100,9 @@ class JavalinConfig {
                     patch(IntakeController::updateIntake)
                 }
             }
-            path("/api/goals/{id}") {
-                patch(GoalController::updateGoalsByUserId)
-            }
             path("/api/weight/{id}") {
                 patch(WeightController::updateWeightById)
+                delete(WeightController::deleteWeightById)
             }
             path("/api/food") {
                 post(FoodItemController::addFoodItem)
@@ -110,21 +111,18 @@ class JavalinConfig {
                     patch(FoodItemController::updateFoodItemsByFoodId)
                 }
             }
-            path("/api/food-intake") {
-                post(FoodItemIntakeController::addFoodItemIntake)
-                path("{foodIntake-id}") {
-                    delete(FoodItemIntakeController::deleteFoodItemIntakeByFoodIntakeId)
-                    patch(FoodItemIntakeController::updateFoodItemIntakeByFoodIntakeId)
-                }
-            }
 
             // The @routeComponent that we added in layout.html earlier will be replaced
             // by the String inside of VueComponent. This means a call to / will load
             // the layout and display our <home-page> component.
             get("/", VueComponent("<home-page></home-page>"))
             get("/users", VueComponent("<user-overview></user-overview>"))
+            get("/activities", VueComponent("<activity-overview></activity-overview>"))
             get("/users/{user-id}", VueComponent("<user-profile></user-profile>"))
             get("/users/{user-id}/activities", VueComponent("<user-activity-overview></user-activity-overview>"))
+            get("/users/{user-id}/weight", VueComponent("<user-weight></user-weight>"))
+            get("/users/{user-id}/goals", VueComponent("<user-goals></user-goals>"))
+            get("/users/{user-id}/intakes", VueComponent("<user-intake></user-intake>"))
         }
     }
 
