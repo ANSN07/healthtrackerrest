@@ -58,6 +58,9 @@ class JavalinConfig {
                         get(IntakeController::getIntakesByUserId)
                         delete(IntakeController::deleteIntakeByUserId)
                     }
+                    path("food-items"){
+                        get(FoodItemController::getFoodItemsByUserId)
+                    }
                     path("badges"){
                         get(BadgeController::getBadgesByUserId)
                     }
@@ -108,19 +111,13 @@ class JavalinConfig {
                     patch(FoodItemController::updateFoodItemsByFoodId)
                 }
             }
-            path("/api/food-intake") {
-                post(FoodItemIntakeController::addFoodItemIntake)
-                path("{foodIntake-id}") {
-                    delete(FoodItemIntakeController::deleteFoodItemIntakeByFoodIntakeId)
-                    patch(FoodItemIntakeController::updateFoodItemIntakeByFoodIntakeId)
-                }
-            }
 
             // The @routeComponent that we added in layout.html earlier will be replaced
             // by the String inside of VueComponent. This means a call to / will load
             // the layout and display our <home-page> component.
             get("/", VueComponent("<home-page></home-page>"))
             get("/users", VueComponent("<user-overview></user-overview>"))
+            get("/activities", VueComponent("<activity-overview></activity-overview>"))
             get("/users/{user-id}", VueComponent("<user-profile></user-profile>"))
             get("/users/{user-id}/activities", VueComponent("<user-activity-overview></user-activity-overview>"))
             get("/users/{user-id}/weight", VueComponent("<user-weight></user-weight>"))

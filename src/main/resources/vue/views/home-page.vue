@@ -16,7 +16,7 @@
           <h5 class="card-header">Total Activities</h5>
           <div class="card-body">
             <h5 class="card-title">{{activities.length}} activities</h5>
-            <a href="/activities" class="btn btn-primary">More Details...</a>
+            <a href="/api/activities" class="btn btn-primary">More Details...</a>
           </div>
         </div>
       </div>
@@ -35,10 +35,10 @@ Vue.component('home-page',
       created() {
         axios.get("/api/users")
             .then(res => this.users = res.data)
-            .catch(() => alert("Error while fetching users"));
+            .catch(() => console.log("Error while fetching users"));
         axios.get("/api/activities")
             .then(res => this.activities = res.data)
-            .catch(() => alert("Error while fetching activities"));
+            .catch(() => console.log("Error while fetching activities"));
       }
     });
 </script>

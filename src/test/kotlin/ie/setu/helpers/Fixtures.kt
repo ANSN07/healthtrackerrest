@@ -69,6 +69,12 @@ val weights = arrayListOf<Weight>(
     Weight(id = 3, value = 50, date = DateTime.now(), userId = 3)
 )
 
+val foodItems = arrayListOf<FoodItem>(
+    FoodItem(foodId = 1, foodName = "A", unitMeasure = "a", calorie = 100, numberOfItems = 100, userId = 1),
+    FoodItem(foodId = 2, foodName = "N", unitMeasure = "b", calorie = 100, numberOfItems = 100, userId = 2),
+    FoodItem(foodId = 3, foodName = "P", unitMeasure = "c", calorie = 100, numberOfItems = 100, userId = 3)
+)
+
 fun populateUserTable(): UserDAO {
     SchemaUtils.create(Users)
     val userDAO = UserDAO()
@@ -120,4 +126,13 @@ fun populateGoalTable(): GoalDAO {
     goalDAO.save(goals.get(1))
     goalDAO.save(goals.get(2))
     return goalDAO
+}
+
+fun populateFoodItemTable(): FoodItemDAO {
+    SchemaUtils.create(FoodItems)
+    val foodItemDAO = FoodItemDAO()
+    foodItemDAO.save(foodItems.get(0))
+    foodItemDAO.save(foodItems.get(1))
+    foodItemDAO.save(foodItems.get(2))
+    return foodItemDAO
 }

@@ -169,7 +169,7 @@ Vue.component("user-weight",{
           }
 
         })
-        .catch(() => alert("Error while fetching weight"));
+        .catch(() => console.log("Error while fetching weight"));
 
   },
   methods: {
