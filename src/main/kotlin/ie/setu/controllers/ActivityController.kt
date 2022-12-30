@@ -19,6 +19,8 @@ object ActivityController {
     private val userDao = UserDAO()
     private val badgeDao = BadgeDAO()
 
+    val levels = mutableListOf<Int>()
+
     @OpenApi(
         summary = "Get all activities",
         operationId = "getAllActivities",
@@ -44,6 +46,12 @@ object ActivityController {
         ctx.json(mapper.writeValueAsString( activities ))
     }
 
+    fun saveBadge(level: Int, badge: Badge) {
+        if (level !in levels) {
+            badgeDao.save(badge)
+        }
+    }
+
     @OpenApi(
         summary = "Get activities by user ID",
         operationId = "getActivitiesByUserId",
@@ -61,16 +69,33 @@ object ActivityController {
                 for (activity in activities) {
                     totalDistance += activity.distance
                 }
+                val badge1 : Badge = jsonToObject("""{"name": "20 kms", "level": 1, "date": "${LocalDateTime.now()}", "userId": ${ctx.pathParam("user-id")}}""")
+                val badge2 : Badge = jsonToObject("""{"name": "40 kms", "level": 2, "date": "${LocalDateTime.now()}", "userId": ${ctx.pathParam("user-id")}}""")
+                val badge3 : Badge = jsonToObject("""{"name": "80 kms", "level": 3, "date": "${LocalDateTime.now()}", "userId": ${ctx.pathParam("user-id")}}""")
+                val badge4 : Badge = jsonToObject("""{"name": "100 kms", "level": 4, "date": "${LocalDateTime.now()}", "userId": ${ctx.pathParam("user-id")}}""")
+
+                val badges = badgeDao.findByUserId(ctx.pathParam("user-id").toInt())
+
+                if (badges.isNotEmpty()) {
+                    for (badge in badges) {
+                        levels.add(badge.level)
+                    }
+                }
 
                 if (totalDistance >= 20.0 && totalDistance < 40.0) {
-                    val badge : Badge = jsonToObject("""{"name": "20 kms", "level": 1, "date": "${LocalDateTime.now()}", "userId": ${ctx.pathParam("user-id")}}""")
-                    badgeDao.save(badge)
+                    saveBadge(1, badge1)
                 } else if (totalDistance >= 40.0 && totalDistance < 80.0) {
-                    val badge : Badge = jsonToObject("""{"name": "40 kms", "level": 2, "date": "${LocalDateTime.now()}", "userId": ${ctx.pathParam("user-id")}}""")
-                    badgeDao.save(badge)
-                } else if (totalDistance >= 80.0) {
-                    val badge : Badge = jsonToObject("""{"name": "80 kms", "level": 3, "date": "${LocalDateTime.now()}", "userId": ${ctx.pathParam("user-id")}}""")
-                    badgeDao.save(badge)
+                    saveBadge(1, badge1)
+                    saveBadge(2, badge2)
+                } else if (totalDistance >= 80.0 && totalDistance < 100.0) {
+                    saveBadge(1, badge1)
+                    saveBadge(2, badge2)
+                    saveBadge(3, badge3)
+                } else if (totalDistance >= 100.0) {
+                    saveBadge(1, badge1)
+                    saveBadge(2, badge2)
+                    saveBadge(3, badge3)
+                    saveBadge(4, badge4)
                 }
 
                 val mapper = jacksonObjectMapper()

@@ -82,18 +82,18 @@ object GoalController {
     }
 
     @OpenApi(
-        summary = "Update goal by ID",
+        summary = "Update goal by user ID",
         operationId = "updateGoalsByUserId",
         tags = ["Goal"],
-        path = "/api/goals/{id}",
+        path = "/api/goals/{userId}",
         method = HttpMethod.PATCH,
-        pathParams = [OpenApiParam("id", Int::class, "The goal ID")],
+        pathParams = [OpenApiParam("userId", Int::class, "The user ID")],
         responses  = [OpenApiResponse("204"), OpenApiResponse("404")]
     )
     fun updateGoalsByUserId(ctx: Context){
         val goal : Goal = jsonToObject(ctx.body())
         if (goalDao.updateById(
-                goalId=ctx.pathParam("id").toInt(),
+                id=ctx.pathParam("user-id").toInt(),
                 goalDTO=goal) !=0)
             ctx.status(204)
         else

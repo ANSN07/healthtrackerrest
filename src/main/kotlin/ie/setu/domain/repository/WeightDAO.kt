@@ -39,9 +39,9 @@ class WeightDAO {
         }
     }
 
-    fun deleteByUserId (userId: Int): Int{
+    fun deleteById (weightId: Int): Int{
         return transaction{
-            userWeight.deleteWhere { userWeight.userId eq userId }
+            userWeight.deleteWhere { userWeight.id eq weightId }
         }
     }
 

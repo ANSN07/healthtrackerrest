@@ -28,10 +28,10 @@ class GoalDAO {
         }
     }
 
-    fun updateById(goalId: Int, goalDTO: Goal): Int {
+    fun updateById(id: Int, goalDTO: Goal): Int {
         return transaction {
             Goals.update ({
-                Goals.id eq goalId}) {
+                Goals.userId eq id}) {
                 it[targetWeight] = goalDTO.targetWeight
                 it[targetCalories] = goalDTO.targetCalories
                 it[targetLevel] = goalDTO.targetLevel

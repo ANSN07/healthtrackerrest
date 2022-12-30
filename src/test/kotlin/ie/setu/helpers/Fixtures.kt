@@ -1,14 +1,8 @@
 package ie.setu.helpers
 
-import ie.setu.domain.Activity
-import ie.setu.domain.Intake
-import ie.setu.domain.User
-import ie.setu.domain.db.Activities
-import ie.setu.domain.db.Intakes
-import ie.setu.domain.db.Users
-import ie.setu.domain.repository.ActivityDAO
-import ie.setu.domain.repository.IntakeDAO
-import ie.setu.domain.repository.UserDAO
+import ie.setu.domain.*
+import ie.setu.domain.db.*
+import ie.setu.domain.repository.*
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.joda.time.DateTime
 
@@ -57,6 +51,24 @@ val intakes = arrayListOf<Intake>(
     Intake(intakeId = 3, mealType = "C", date = DateTime.now(), userId = 2)
 )
 
+val goals = arrayListOf<Goal>(
+    Goal(id = 1, targetWeight = 30, targetLevel = 4, targetCalories = 120, date = DateTime.now(), userId = 1),
+    Goal(id = 2, targetWeight = 70, targetLevel = 2, targetCalories = 130, date = DateTime.now(), userId = 2),
+    Goal(id = 3, targetWeight = 40, targetLevel = 1, targetCalories = 140, date = DateTime.now(), userId = 3)
+)
+
+val badges = arrayListOf<Badge>(
+    Badge(id = 1, name = "A", level = 4, date = DateTime.now(), userId = 1),
+    Badge(id = 2, name = "B", level = 4, date = DateTime.now(), userId = 3),
+    Badge(id = 3, name = "C", level = 4, date = DateTime.now(), userId = 2)
+)
+
+val weights = arrayListOf<Weight>(
+    Weight(id = 1, value = 30, date = DateTime.now(), userId = 1),
+    Weight(id = 2, value = 40, date = DateTime.now(), userId = 1),
+    Weight(id = 3, value = 50, date = DateTime.now(), userId = 3)
+)
+
 fun populateUserTable(): UserDAO {
     SchemaUtils.create(Users)
     val userDAO = UserDAO()
@@ -81,4 +93,31 @@ fun populateIntakeTable(): IntakeDAO {
     intakeDAO.save(intakes.get(1))
     intakeDAO.save(intakes.get(2))
     return intakeDAO
+}
+
+fun populateBadgeTable(): BadgeDAO {
+    SchemaUtils.create(Badges)
+    val badgeDAO = BadgeDAO()
+    badgeDAO.save(badges.get(0))
+    badgeDAO.save(badges.get(1))
+    badgeDAO.save(badges.get(2))
+    return badgeDAO
+}
+
+fun populateWeightTable(): WeightDAO {
+    SchemaUtils.create(userWeight)
+    val weightDAO = WeightDAO()
+    weightDAO.save(weights.get(0))
+    weightDAO.save(weights.get(1))
+    weightDAO.save(weights.get(2))
+    return weightDAO
+}
+
+fun populateGoalTable(): GoalDAO {
+    SchemaUtils.create(Goals)
+    val goalDAO = GoalDAO()
+    goalDAO.save(goals.get(0))
+    goalDAO.save(goals.get(1))
+    goalDAO.save(goals.get(2))
+    return goalDAO
 }
