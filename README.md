@@ -75,9 +75,23 @@ get("/api/users/:user-id/badges", HealthTrackerAPI::getBadgesByUserId)
 
 get("/api/users/:user-id/weight", HealthTrackerAPI::getWeightByUserId)
 
+post("/api/users/:user-id/weight", HealthTrackerAPI::addWeight)
+
+patch("/api/weight/:id", HealthTrackerAPI::updateWeightById)
+
+delete("/api/weight/:id", HealthTrackerAPI::deleteWeightById)
+
 //GOALS
 
 get("/api/users/:user-id/goals", HealthTrackerAPI::getGoalsByUserId)
+
+post("/api/users/:user-id/goals", HealthTrackerAPI::addGoal)
+
+delete("/api/users/:user-id/goals", HealthTrackerAPI::deleteGoalsByUserId)
+
+patch("/api/users/:user-id/goals", HealthTrackerAPI::updateGoalsByUserId)
+
+
 
 
 Swagger Documentation of the project: [Health Tracker](https://health-tracker-20100677.herokuapp.com/swagger-ui)
