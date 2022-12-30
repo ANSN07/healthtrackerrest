@@ -12,6 +12,7 @@ import ie.setu.domain.repository.IntakeDAO
 import ie.setu.helpers.intakes
 import ie.setu.helpers.populateIntakeTable
 import ie.setu.helpers.populateUserTable
+import org.joda.time.DateTime
 import kotlin.test.assertEquals
 
 //retrieving some test data from Fixtures
@@ -41,9 +42,9 @@ class IntakeDAOTest {
                 val intakeDAO = populateIntakeTable()
                 //Act & Assert
                 assertEquals(3, intakeDAO.getAll().size)
-                assertEquals(intake1, intakeDAO.findByIntakeId(intake1.id))
-                assertEquals(intake2, intakeDAO.findByIntakeId(intake2.id))
-                assertEquals(intake3, intakeDAO.findByIntakeId(intake3.id))
+                assertEquals(intake1, intakeDAO.findByIntakeId(intake1.intakeId))
+                assertEquals(intake2, intakeDAO.findByIntakeId(intake2.intakeId))
+                assertEquals(intake3, intakeDAO.findByIntakeId(intake3.intakeId))
             }
         }
     }
@@ -135,9 +136,9 @@ class IntakeDAOTest {
                 val intakeDAO = populateIntakeTable()
 
                 //Act & Assert
-                val intake3updated = Intake(id = 3, food = "ABC",
-                    calorie = 220, numberOfUnits = 5, userId = 2)
-                intakeDAO.updateByIntakeId(intake3updated.id, intake3updated)
+                val intake3updated = Intake(intakeId = 3, mealType = "ABC",
+                    date = DateTime.now(), userId = 2)
+                intakeDAO.updateByIntakeId(intake3updated.intakeId, intake3updated)
                 assertEquals(intake3updated, intakeDAO.findByIntakeId(3))
             }
         }
@@ -151,8 +152,8 @@ class IntakeDAOTest {
                 val intakeDAO = populateIntakeTable()
 
                 //Act & Assert
-                val intake4updated = Intake(id = 3, food = "ABC",
-                    calorie = 220, numberOfUnits = 5, userId = 2)
+                val intake4updated = Intake(intakeId = 3, mealType = "ABC",
+                    date = DateTime.now(), userId = 2)
                 intakeDAO.updateByIntakeId(4, intake4updated)
                 assertEquals(null, intakeDAO.findByIntakeId(4))
                 assertEquals(3, intakeDAO.getAll().size)
@@ -188,7 +189,7 @@ class IntakeDAOTest {
 
                 //Act & Assert
                 assertEquals(3, intakeDAO.getAll().size)
-                intakeDAO.deleteByIntakeId(intake3.id)
+                intakeDAO.deleteByIntakeId(intake3.intakeId)
                 assertEquals(2, intakeDAO.getAll().size)
             }
         }

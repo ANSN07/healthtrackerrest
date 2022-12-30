@@ -1,8 +1,9 @@
 package ie.setu.domain
 
+import org.joda.time.DateTime
+
 data class Intake (
-    var id: Int,
-    var food: String,
-    var calorie: Int,
-    var userId: Int,
-    var numberOfUnits: Int)
+    var intakeId: Int,
+    var mealType: String,
+    var date: DateTime,
+    var userId: Int)

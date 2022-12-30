@@ -21,10 +21,9 @@ fun mapToActivity(it: ResultRow) = Activity(
 )
 
 fun mapToIntake(it: ResultRow) = Intake(
-    id = it[Intakes.id],
-    food = it[Intakes.food],
-    numberOfUnits = it[Intakes.numberOfUnits],
-    calorie = it[Intakes.calorie],
+    intakeId = it[Intakes.intakeId],
+    mealType = it[Intakes.mealType],
+    date = it[Intakes.date],
     userId = it[Intakes.userId]
 )
 
@@ -50,4 +49,18 @@ fun mapToWeight(it: ResultRow) = Weight(
     value = it[userWeight.value],
     date = it[userWeight.date],
     userId = it[userWeight.userId]
+)
+
+fun mapToFoodItem(it: ResultRow) = FoodItem(
+    foodId = it[FoodItems.foodId],
+    foodName = it[FoodItems.foodName],
+    calorie = it[FoodItems.calorie],
+    unitMeasure = it[FoodItems.unitMeasure]
+)
+
+fun mapToFoodIntake(it: ResultRow) = FoodItemIntake(
+    foodIntakeId = it[FoodItemIntakes.foodIntakeId],
+    foodId = it[FoodItemIntakes.foodId],
+    intakeId = it[FoodItemIntakes.intakeId],
+    numberOfItems = it[FoodItemIntakes.numberOfItems]
 )

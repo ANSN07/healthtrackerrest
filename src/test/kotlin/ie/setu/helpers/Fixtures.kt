@@ -52,9 +52,9 @@ val activities = arrayListOf<Activity>(
 )
 
 val intakes = arrayListOf<Intake>(
-    Intake(id = 1, food = "A", numberOfUnits = 22, calorie = 230, userId = 1),
-    Intake(id = 2, food = "B", numberOfUnits = 10, calorie = 80, userId = 1),
-    Intake(id = 3, food = "C", numberOfUnits = 12, calorie = 120, userId = 2)
+    Intake(intakeId = 1, mealType = "A", date = DateTime.now(), userId = 1),
+    Intake(intakeId = 2, mealType = "B", date = DateTime.now(), userId = 1),
+    Intake(intakeId = 3, mealType = "C", date = DateTime.now(), userId = 2)
 )
 
 fun populateUserTable(): UserDAO {

@@ -31,7 +31,6 @@ object IntakeController {
         else{
             ctx.status(404)
         }
-        //mapper handles the deserialization of Joda date into a String.
         val mapper = jacksonObjectMapper()
             .registerModule(JodaModule())
             .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
@@ -52,7 +51,6 @@ object IntakeController {
         if (userDao.findById(ctx.pathParam("user-id").toInt()) != null) {
             val intakes = intakeDAO.findByUserId(ctx.pathParam("user-id").toInt())
             if (intakes.isNotEmpty()) {
-                //mapper handles the deserialization of Joda date into a String.
                 val mapper = jacksonObjectMapper()
                     .registerModule(JodaModule())
                     .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
@@ -83,7 +81,7 @@ object IntakeController {
         val intake : Intake = jsonToObject(ctx.body())
         val intakeId = intakeDAO.save(intake)
         if (intakeId != null) {
-            intake.id = intakeId
+            intake.intakeId = intakeId
             ctx.json(mapper.writeValueAsString(intake))
             ctx.status(201)
         }

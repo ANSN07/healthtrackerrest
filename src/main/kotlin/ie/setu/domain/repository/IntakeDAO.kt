@@ -10,7 +10,6 @@ import org.jetbrains.exposed.sql.transactions.transaction
 
 class IntakeDAO {
 
-    //Get all the intakes in the database regardless of user id
     fun getAll(): ArrayList<Intake> {
         val intakesList: ArrayList<Intake> = arrayListOf()
         transaction {
@@ -20,17 +19,15 @@ class IntakeDAO {
         return intakesList
     }
 
-    //Find a specific intake by intake id
     fun findByIntakeId(id: Int): Intake?{
         return transaction {
             Intakes
-                .select() { Intakes.id eq id}
+                .select() { Intakes.intakeId eq id}
                 .map{mapToIntake(it)}
                 .firstOrNull()
         }
     }
 
-    //Find all intakes for a specific user id
     fun findByUserId(userId: Int): List<Intake>{
         return transaction {
             Intakes
@@ -39,25 +36,22 @@ class IntakeDAO {
         }
     }
 
-    //Save an intake to the database
     fun save(intake: Intake) : Int?{
         return transaction {
             Intakes.insert {
-                it[food] = intake.food
-                it[numberOfUnits] = intake.numberOfUnits
-                it[calorie] = intake.calorie
+                it[mealType] = intake.mealType
+                it[date] = intake.date
                 it[userId] = intake.userId
-            } get Intakes.id
+            } get Intakes.intakeId
         }
     }
 
     fun updateByIntakeId(intakeId: Int, intakeDTO: Intake): Int {
         return transaction {
             Intakes.update ({
-                Intakes.id eq intakeId}) {
-                it[food] = intakeDTO.food
-                it[numberOfUnits] = intakeDTO.numberOfUnits
-                it[calorie] = intakeDTO.calorie
+                Intakes.intakeId eq intakeId}) {
+                it[mealType] = intakeDTO.mealType
+                it[date] = intakeDTO.date
                 it[userId] = intakeDTO.userId
             }
         }
@@ -65,7 +59,7 @@ class IntakeDAO {
 
     fun deleteByIntakeId (intakeId: Int): Int{
         return transaction{
-            Intakes.deleteWhere { Intakes.id eq intakeId }
+            Intakes.deleteWhere { Intakes.intakeId eq intakeId }
         }
     }
 

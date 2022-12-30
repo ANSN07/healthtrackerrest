@@ -103,6 +103,21 @@ class JavalinConfig {
             path("/api/weight/{id}") {
                 patch(WeightController::updateWeightById)
             }
+            path("/api/food") {
+                post(FoodItemController::addFoodItem)
+                path("{food-id}") {
+                    delete(FoodItemController::deleteFoodItemsByFoodId)
+                    patch(FoodItemController::updateFoodItemsByFoodId)
+                }
+            }
+            path("/api/food-intake") {
+                post(FoodItemIntakeController::addFoodItemIntake)
+                path("{foodIntake-id}") {
+                    delete(FoodItemIntakeController::deleteFoodItemIntakeByFoodIntakeId)
+                    patch(FoodItemIntakeController::updateFoodItemIntakeByFoodIntakeId)
+                }
+            }
+
             // The @routeComponent that we added in layout.html earlier will be replaced
             // by the String inside of VueComponent. This means a call to / will load
             // the layout and display our <home-page> component.
